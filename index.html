@@ -18,7 +18,7 @@
     <meta property="twitter:url" content="https://ilal-mirna-wedding.vercel.app/" />
     <meta property="twitter:title" content="The Wedding of Mirna & Ilal" />
     <meta property="twitter:description" content="Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami." />
-    <meta property="twitter:image" content="https://ilal-mirna-wedding.vercel.app/img/preview-cover.jpeg" />
+    <meta property="twitter:image" content="https://ilal-mirna.vercel.app/img/preview-cover.jpeg" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,34 +32,37 @@
         theme: {
           extend: {
             colors: {
-              // Palet Warna "Dewasa & Elegan"
-              "denim-dark": "#34517b", // Denim yang lebih dalam dan matang
-              "denim-muted": "#4a6fa5", // Denim medium untuk gradasi
-              "cream-bg": "#FFFBF2", // Background cream lembut
-              "muted-rose": "#D4A5A5", // Pink yang lebih dewasa/kalem
-              "dusty-blue": "#A3BDD0", // Biru abu-abu yang elegan
-              "soft-gold": "#C8A951", // Emas yang tidak terlalu kuning
+              "denim-dark": "#34517b",
+              "denim-muted": "#4a6fa5",
+              "cream-bg": "#FFFBF2",
+              "muted-rose": "#D4A5A5",
+              "dusty-blue": "#A3BDD0",
+              "soft-gold": "#C8A951",
               "text-dark": "#2D3436",
             },
             fontFamily: {
               main: ["Nunito", "sans-serif"],
-              display: ["Comfortaa", "sans-serif"], // Modern, rounded, clean
-              script: ["Pinyon Script", "cursive"], // Elegant romance
+              display: ["Comfortaa", "sans-serif"],
+              script: ["Pinyon Script", "cursive"],
+              wedding: ["Aphrodite Pro", "Pinyon Script", "cursive"],
             },
             boxShadow: {
-              // Shadow lembut (Premium feel), bukan shadow kartun keras
               soft: "0 10px 30px -5px rgba(52, 81, 123, 0.15)",
               "soft-hover": "0 20px 40px -5px rgba(52, 81, 123, 0.25)",
               glow: "0 0 20px rgba(200, 169, 81, 0.3)",
             },
             animation: {
               "float-slow": "float 8s ease-in-out infinite",
-              "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              sway: "sway 10s ease-in-out infinite",
             },
             keyframes: {
               float: {
                 "0%, 100%": { transform: "translateY(0)" },
                 "50%": { transform: "translateY(-15px)" },
+              },
+              sway: {
+                "0%, 100%": { transform: "rotate(-5deg)" },
+                "50%": { transform: "rotate(5deg)" },
               },
             },
           },
@@ -68,34 +71,39 @@
     </script>
   </head>
   <body class="bg-cream-bg text-text-dark overflow-x-hidden antialiased font-main selection:bg-denim-muted selection:text-white">
-    <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-      <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-dusty-blue/20 rounded-full blur-3xl animate-float-slow opacity-70"></div>
-      <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-muted-rose/20 rounded-full blur-3xl animate-float-slow opacity-70" style="animation-delay: -2s"></div>
-    </div>
-
     <button id="music-btn" class="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full border-2 border-soft-gold/50 bg-denim-dark text-white flex items-center justify-center shadow-soft hover:scale-110 transition-all hidden">
       <i class="fas fa-music animate-spin-slow text-sm"></i>
     </button>
     <audio id="bg-music" loop src="sound/sound.mp3"></audio>
 
-    <section id="opening-cover" class="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-gradient-to-b from-denim-dark to-denim-muted transition-transform duration-1000 ease-in-out origin-top">
-      <div class="absolute inset-0 p-6 pointer-events-none">
-        <div class="w-full h-full border-[1px] border-white/20 rounded-[3rem]"></div>
-      </div>
+    <section id="opening-cover" class="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-gradient-to-b from-denim-dark to-denim-muted transition-transform duration-1000 ease-in-out origin-top overflow-hidden">
+      <svg class="absolute top-0 left-0 w-48 h-48 text-soft-gold/20 pointer-events-none transform -translate-x-10 -translate-y-10" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M50 150 Q100 100 150 50 M50 150 Q20 100 50 50 M150 50 Q180 20 150 0" />
+        <circle cx="150" cy="50" r="10" fill="currentColor" opacity="0.5" />
+        <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.5" />
+      </svg>
+
+      <svg class="absolute bottom-0 right-0 w-64 h-64 text-white/10 pointer-events-none" viewBox="0 0 200 200" fill="currentColor">
+        <path d="M200 200 C150 200 100 150 100 200 Z" />
+        <path d="M200 200 C200 150 150 100 200 100 Z" />
+        <circle cx="180" cy="180" r="10" fill="#C8A951" opacity="0.4" />
+      </svg>
 
       <div class="relative z-10 text-center p-8 w-full max-w-md">
         <p class="font-display text-sm tracking-[0.3em] text-dusty-blue uppercase mb-4">The Wedding Of</p>
 
-        <div class="relative py-6">
-          <h1 class="font-script text-6xl md:text-7xl text-white drop-shadow-sm leading-snug">Mirna <span class="text-soft-gold">&</span> Ilal</h1>
+        <div class="relative py-8">
+          <h1 class="font-wedding text-6xl md:text-8xl text-white drop-shadow-sm leading-relaxed relative z-10">Mirna <span class="text-soft-gold font-script text-4xl align-middle">&</span> Ilal</h1>
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-24 bg-white/5 rounded-full blur-xl -z-0"></div>
         </div>
 
-        <div class="mt-10 flex flex-col items-center gap-5 p-8 bg-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 shadow-soft">
-          <div class="text-sm font-semibold text-white/80 tracking-wider">Kepada Yth.</div>
-          <div id="guest-name" class="font-display text-xl text-white capitalize px-6 py-3 border-b-2 border-soft-gold/50 w-full text-center">Tamu Undangan</div>
+        <div class="mt-10 flex flex-col items-center gap-5 p-8 bg-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 shadow-soft relative overflow-hidden">
+          <div class="absolute -right-4 -top-4 text-white/10 text-6xl rotate-12"><i class="fas fa-leaf"></i></div>
 
-          <button id="btn-open" class="mt-6 group relative px-10 py-4 bg-gradient-to-r from-denim-dark to-denim-muted overflow-hidden rounded-full shadow-soft text-white transition-all hover:shadow-soft-hover hover:-translate-y-1">
-            <div class="absolute inset-0 bg-white/0 transition-all group-hover:bg-white/10"></div>
+          <div class="text-sm font-semibold text-white/80 tracking-wider relative z-10">Kepada Yth.</div>
+          <div id="guest-name" class="font-display text-xl text-white capitalize px-6 py-3 border-b-2 border-soft-gold/50 w-full text-center relative z-10">Tamu Undangan</div>
+
+          <button id="btn-open" class="mt-6 group relative px-10 py-4 bg-gradient-to-r from-denim-dark to-denim-muted overflow-hidden rounded-full shadow-soft text-white transition-all hover:shadow-soft-hover hover:-translate-y-1 z-10">
             <span class="relative font-display text-sm font-bold tracking-wider flex items-center gap-3"> BUKA UNDANGAN <i class="fas fa-chevron-right text-xs"></i> </span>
           </button>
         </div>
@@ -103,22 +111,69 @@
     </section>
 
     <main id="main-content" class="relative z-10 hidden opacity-0 transition-opacity duration-1000">
-      <section class="min-h-screen relative flex flex-col items-center justify-center py-20 px-6 bg-gradient-to-b from-cream-bg to-white">
+      <section class="min-h-screen relative flex flex-col items-center justify-center py-20 px-6 bg-gradient-to-b from-cream-bg to-white overflow-hidden">
+        <div class="absolute top-0 left-0 w-48 h-48 md:w-80 md:h-80 pointer-events-none z-0 animate-sway origin-top-left">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-denim-muted/20">
+            <path d="M0 0 C30 60, 60 90, 100 140" stroke="currentColor" stroke-width="2" />
+            <path d="M10 0 C40 50, 20 100, 50 150" stroke="currentColor" stroke-width="1.5" />
+
+            <ellipse cx="100" cy="140" rx="12" ry="25" fill="#D4A5A5" opacity="0.6" />
+            <ellipse cx="80" cy="100" rx="10" ry="18" fill="#A3BDD0" opacity="0.5" transform="rotate(-30 80 100)" />
+            <ellipse cx="120" cy="110" rx="8" ry="15" fill="#C8A951" opacity="0.4" transform="rotate(20 120 110)" />
+            <ellipse cx="50" cy="150" rx="8" ry="15" fill="#A3BDD0" opacity="0.4" transform="rotate(-10 50 150)" />
+
+            <circle cx="90" cy="60" r="4" fill="#D4A5A5" opacity="0.5" />
+            <circle cx="130" cy="160" r="3" fill="#A3BDD0" opacity="0.5" />
+          </svg>
+        </div>
+
+        <div class="absolute top-0 right-0 w-40 h-40 md:w-72 md:h-72 pointer-events-none z-0 animate-sway origin-top-right" style="animation-delay: 1s">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-denim-muted/20 transform scale-x-[-1]">
+            <path d="M0 0 C40 40, 80 50, 120 80" stroke="currentColor" stroke-width="2" />
+            <ellipse cx="120" cy="80" rx="15" ry="8" fill="#D4A5A5" opacity="0.5" />
+            <circle cx="80" cy="40" r="20" fill="#A3BDD0" opacity="0.2" />
+            <path d="M20 0 C50 80, 100 20, 140 50" stroke="currentColor" stroke-width="1" opacity="0.5" />
+            <circle cx="140" cy="50" r="6" fill="#C8A951" opacity="0.4" />
+          </svg>
+        </div>
+
+        <div class="absolute bottom-0 right-0 w-48 h-48 md:w-80 md:h-80 pointer-events-none z-0">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-muted-rose/20">
+            <circle cx="200" cy="200" r="100" fill="currentColor" />
+            <circle cx="150" cy="220" r="70" fill="#A3BDD0" opacity="0.4" />
+            <circle cx="220" cy="140" r="60" fill="#C8A951" opacity="0.3" />
+            <path d="M150 150 Q180 180 200 120" stroke="#D4A5A5" stroke-width="2" opacity="0.5" />
+            <circle cx="150" cy="150" r="5" fill="#D4A5A5" />
+          </svg>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-32 h-32 md:w-64 md:h-64 pointer-events-none z-0">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-denim-muted/10">
+            <circle cx="0" cy="200" r="80" fill="#A3BDD0" opacity="0.3" />
+            <circle cx="40" cy="160" r="40" fill="#D4A5A5" opacity="0.2" />
+            <path d="M0 200 L50 150" stroke="currentColor" stroke-width="1" />
+          </svg>
+        </div>
+
         <div class="relative z-10 mb-10 fade-in-up">
-          <div class="absolute inset-0 bg-soft-gold/20 rounded-full blur-3xl transform scale-110 animate-pulse-slow"></div>
-          <div class="w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-white shadow-soft overflow-hidden relative bg-dusty-blue/20">
-            <img src="img/couple.jpg" alt="Couple" class="w-full h-full object-cover object-top hover:scale-105 transition duration-700" />
+          <div class="absolute inset-0 bg-soft-gold/20 rounded-full blur-3xl transform scale-110 animate-pulse"></div>
+          <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white shadow-soft overflow-hidden relative bg-dusty-blue/20 mx-auto">
+            <img src="img/couple.jpeg" alt="Couple" class="w-full h-full object-cover object-top hover:scale-105 transition duration-700" />
           </div>
         </div>
 
         <div class="text-center relative z-10 px-4 fade-in-up" style="transition-delay: 200ms">
-          <p class="font-script text-3xl text-denim-muted mb-2">Save The Date</p>
+          <p class="font-script text-3xl text-denim-muted mb-4">Save The Date</p>
 
-          <div class="relative">
-            <h1 class="font-display text-5xl md:text-7xl text-denim-dark leading-tight">Mirna <span class="font-script text-muted-rose text-4xl mx-2">&</span> Ilal</h1>
+          <div class="relative max-w-4xl mx-auto">
+            <h1 class="font-display text-denim-dark leading-tight flex flex-col md:block items-center justify-center">
+              <span class="text-3xl md:text-5xl lg:text-6xl px-2">Siti Mirna Rohimah, S.Sos.</span>
+              <span class="font-script text-muted-rose text-4xl my-2 md:mx-3">&</span>
+              <span class="text-3xl md:text-5xl lg:text-6xl px-2">Ilal Inanjar, S.Pd.</span>
+            </h1>
           </div>
 
-          <div class="mt-10 inline-flex items-center gap-4 font-display text-denim-dark bg-white py-3 px-8 rounded-full shadow-soft border border-gray-100">
+          <div class="mt-8 inline-flex items-center gap-4 font-display text-denim-dark bg-white/80 backdrop-blur-sm py-3 px-8 rounded-full shadow-soft border border-gray-100">
             <span class="text-2xl font-bold">24</span>
             <div class="h-8 w-[2px] bg-soft-gold/50"></div>
             <span class="text-lg uppercase tracking-wider">Maret</span>
@@ -128,38 +183,104 @@
         </div>
       </section>
 
-      <section class="py-16 px-6 relative">
-        <div class="max-w-3xl mx-auto relative fade-in-up bg-white p-10 md:p-12 text-center rounded-[3rem] shadow-soft border-t-4 border-muted-rose">
-          <i class="fas fa-quote-right text-4xl text-muted-rose/30 absolute top-6 right-8"></i>
+      <section class="py-16 px-6 relative bg-white overflow-hidden">
+        <div class="absolute left-[-50px] top-1/2 -translate-y-1/2 text-muted-rose/5 w-64 h-64 pointer-events-none">
+          <i class="fas fa-fan fa-spin text-9xl" style="animation-duration: 20s"></i>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative fade-in-up bg-cream-bg p-10 md:p-12 text-center rounded-[3rem] shadow-soft border-t-4 border-muted-rose">
+          <div class="absolute top-0 right-0 p-6 opacity-20 text-denim-muted">
+            <i class="fas fa-leaf text-4xl"></i>
+          </div>
+
+          <i class="fas fa-quote-right text-4xl text-muted-rose/30 absolute top-6 left-8 transform -scale-x-100"></i>
           <p class="font-main text-lg text-gray-600 leading-relaxed mb-8 italic relative z-10">
             "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."
           </p>
-          <div class="inline-block px-6 py-2 bg-denim-dark text-white font-display text-xs uppercase tracking-widest rounded-full">Q.S. Ar-Rum: 21</div>
+          <div class="inline-block px-6 py-2 bg-denim-dark text-white font-display text-xs uppercase tracking-widest rounded-full shadow-glow">Q.S. Ar-Rum: 21</div>
+        </div>
+      </section>
+
+      <section class="py-20 px-6 bg-cream-bg relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent opacity-50"></div>
+        <div class="absolute top-10 right-[-20px] text-muted-rose/10 text-9xl pointer-events-none animate-sway">
+          <i class="fas fa-leaf"></i>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+          <div class="fade-in-up mb-16">
+            <h2 class="font-display text-2xl text-denim-dark mb-4 font-bold">Assalamu’alaikum Wr. Wb.</h2>
+            <p class="font-main text-gray-600 leading-relaxed max-w-2xl mx-auto">Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami.</p>
+          </div>
+
+          <div class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">
+            <div class="fade-in-up group w-full max-w-xs relative">
+              <div class="relative w-56 h-56 mx-auto mb-8">
+                <div class="absolute -inset-4 rounded-full border border-dashed border-muted-rose/50 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                <div class="absolute inset-0 rounded-full border-[6px] border-white shadow-soft bg-muted-rose/20 overflow-hidden transform group-hover:scale-105 transition-transform duration-500 z-10">
+                  <img src="img/wanita.jpeg" alt="Mirna" class="w-full h-full object-cover" />
+                </div>
+              </div>
+
+              <h3 class="font-script text-5xl text-denim-dark mb-3">Mirna Rohimah</h3>
+              <p class="font-main text-sm text-denim-muted font-bold tracking-wide uppercase mb-1">Putri Keempat dari</p>
+              <p class="font-main text-base text-gray-600 mb-6">Bpk. Abdul Kodir & Ibu Aisah</p>
+            </div>
+
+            <div class="fade-in-up flex flex-col items-center justify-center gap-2 text-soft-gold opacity-80">
+              <div class="h-16 w-px bg-soft-gold/30 md:hidden"></div>
+              <span class="font-script text-7xl">&</span>
+              <div class="h-16 w-px bg-soft-gold/30 md:hidden"></div>
+            </div>
+
+            <div class="fade-in-up group w-full max-w-xs relative" style="transition-delay: 200ms">
+              <div class="relative w-56 h-56 mx-auto mb-8">
+                <div class="absolute -inset-4 rounded-full border border-dashed border-denim-muted/50 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity" style="animation-direction: reverse"></div>
+
+                <div class="absolute inset-0 rounded-full border-[6px] border-white shadow-soft bg-dusty-blue/20 overflow-hidden transform group-hover:scale-105 transition-transform duration-500 z-10">
+                  <img src="img/pria.jpeg" alt="Ilal" class="w-full h-full object-cover" />
+                </div>
+              </div>
+
+              <h3 class="font-script text-5xl text-denim-dark mb-3">Ilal Inanjar, S.Pd.</h3>
+              <p class="font-main text-sm text-denim-muted font-bold tracking-wide uppercase mb-1">Putra Ketiga dari</p>
+              <p class="font-main text-base text-gray-600 mb-6">Bpk. Maman Rukmana & Ibu Laelani</p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="py-24 px-6 relative bg-denim-dark overflow-hidden">
-        <div
-          class="absolute inset-0 opacity-[0.03]"
-          style="
-            background-image: url(&quot;data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E&quot;);
-          "
-        ></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#c8a951 1px, transparent 1px); background-size: 30px 30px"></div>
+
+        <div class="absolute top-0 right-0 w-48 h-48 pointer-events-none opacity-10 text-white">
+          <svg viewBox="0 0 100 100" fill="currentColor">
+            <path d="M100 0 Q50 50 0 0 V100 H100 Z" fill="none" stroke="currentColor" stroke-width="0.5" />
+            <circle cx="80" cy="30" r="5" />
+            <circle cx="60" cy="50" r="3" />
+            <circle cx="90" cy="70" r="8" />
+          </svg>
+        </div>
 
         <div class="max-w-5xl mx-auto relative z-10">
           <div class="text-center mb-16 fade-in-up">
             <h2 class="font-script text-5xl text-white mb-4">Rangkaian Acara</h2>
-            <div class="w-20 h-1 bg-soft-gold mx-auto rounded-full"></div>
+            <div class="flex items-center justify-center gap-2">
+              <div class="h-px w-12 bg-soft-gold"></div>
+              <i class="fas fa-flower text-soft-gold animate-spin-slow"></i>
+              <div class="h-px w-12 bg-soft-gold"></div>
+            </div>
           </div>
 
           <div class="flex flex-col md:flex-row gap-8 justify-center">
-            <div class="flex-1 bg-cream-bg rounded-[2.5rem] overflow-hidden shadow-soft fade-in-up group">
+            <div class="flex-1 bg-cream-bg rounded-[2.5rem] overflow-hidden shadow-soft fade-in-up group relative">
+              <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-muted-rose/20 rounded-full blur-xl transition-all group-hover:scale-150"></div>
+
               <div class="h-3 bg-muted-rose"></div>
               <div class="p-10 relative">
-                <div class="absolute top-6 right-8 text-6xl text-muted-rose/10 font-display font-bold">01</div>
                 <h3 class="font-display text-3xl text-denim-dark mb-1">Akad Nikah</h3>
                 <p class="font-script text-muted-rose text-xl mb-8">The Vows</p>
-
                 <div class="space-y-6">
                   <div class="flex items-start gap-4">
                     <div class="w-10 h-10 bg-muted-rose/20 rounded-full flex items-center justify-center text-muted-rose mt-1">
@@ -181,10 +302,8 @@
                     </div>
                   </div>
                 </div>
-
                 <a
-                  href="https://maps.app.goo.gl/fjJznPyn6BRRPi3VA"
-                  target="_blank"
+                  href="#"
                   class="mt-10 flex items-center justify-center gap-2 w-full py-4 border-2 border-denim-dark text-denim-dark font-display text-sm font-bold uppercase rounded-2xl hover:bg-denim-dark hover:text-white transition-all duration-300"
                 >
                   Lihat Lokasi <i class="fas fa-arrow-right"></i>
@@ -192,13 +311,13 @@
               </div>
             </div>
 
-            <div class="flex-1 bg-cream-bg rounded-[2.5rem] overflow-hidden shadow-soft fade-in-up group" style="transition-delay: 200ms">
+            <div class="flex-1 bg-cream-bg rounded-[2.5rem] overflow-hidden shadow-soft fade-in-up group relative" style="transition-delay: 200ms">
+              <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-dusty-blue/20 rounded-full blur-xl transition-all group-hover:scale-150"></div>
+
               <div class="h-3 bg-dusty-blue"></div>
               <div class="p-10 relative">
-                <div class="absolute top-6 right-8 text-6xl text-dusty-blue/10 font-display font-bold">02</div>
                 <h3 class="font-display text-3xl text-denim-dark mb-1">Resepsi</h3>
                 <p class="font-script text-dusty-blue text-xl mb-8">The Celebration</p>
-
                 <div class="space-y-6">
                   <div class="flex items-start gap-4">
                     <div class="w-10 h-10 bg-dusty-blue/20 rounded-full flex items-center justify-center text-dusty-blue mt-1">
@@ -206,7 +325,7 @@
                     </div>
                     <div>
                       <p class="text-xs font-bold uppercase text-gray-400 tracking-wider">Waktu</p>
-                      <p class="font-display text-lg text-denim-dark font-bold">10:00 - 14:00</p>
+                      <p class="font-display text-lg text-denim-dark font-bold">11:00 - Selesai</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-4">
@@ -220,10 +339,8 @@
                     </div>
                   </div>
                 </div>
-
                 <a
-                  href="https://maps.app.goo.gl/fjJznPyn6BRRPi3VA"
-                  target="_blank"
+                  href="#"
                   class="mt-10 flex items-center justify-center gap-2 w-full py-4 border-2 border-denim-dark text-denim-dark font-display text-sm font-bold uppercase rounded-2xl hover:bg-denim-dark hover:text-white transition-all duration-300"
                 >
                   Lihat Lokasi <i class="fas fa-arrow-right"></i>
@@ -234,7 +351,16 @@
         </div>
       </section>
 
-      <section class="py-20 bg-cream-bg relative">
+      <section class="py-20 bg-cream-bg relative overflow-hidden">
+        <div
+          class="absolute left-0 top-0 h-full w-20 bg-repeat-y opacity-10 pointer-events-none"
+          style="background-image: url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='10' fill='%2334517b'/></svg>&quot;)"
+        ></div>
+        <div
+          class="absolute right-0 top-0 h-full w-20 bg-repeat-y opacity-10 pointer-events-none"
+          style="background-image: url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='10' fill='%2334517b'/></svg>&quot;)"
+        ></div>
+
         <div class="text-center fade-in-up relative z-10">
           <h2 class="font-script text-4xl text-denim-muted mb-10">Menuju Hari Bahagia</h2>
           <div id="countdown" class="flex flex-wrap justify-center gap-4 font-display text-denim-dark"></div>
@@ -243,41 +369,45 @@
 
       <section class="py-24 px-6 bg-white relative">
         <div class="max-w-4xl mx-auto fade-in-up">
-          <div class="text-center mb-16">
-            <h2 class="font-script text-5xl mb-4 text-denim-dark">Wedding Gift</h2>
-            <p class="font-main text-gray-500 max-w-md mx-auto">Doa restu Anda adalah kado terbaik bagi kami. Jika ingin memberi tanda kasih, dapat melalui:</p>
+          <div class="text-center mb-16 relative">
+            <div class="absolute top-[-40px] left-1/2 -translate-x-1/2 text-5xl text-soft-gold">
+              <i class="fas fa-gift"></i>
+            </div>
+
+            <h2 class="font-script text-5xl mb-4 text-denim-dark pt-8">Wedding Gift</h2>
+            <p class="font-main text-gray-500 max-w-md mx-auto">Doa restu Anda adalah kado terbaik bagi kami.</p>
           </div>
 
           <div class="grid md:grid-cols-2 gap-8">
             <div class="group relative bg-cream-bg p-8 rounded-[2.5rem] shadow-soft border border-gray-100 hover:border-soft-gold transition-all duration-300">
+              <div class="absolute top-4 right-4 text-muted-rose opacity-50"><i class="fas fa-flower-tulip"></i></div>
+
               <div class="flex items-center justify-between mb-8">
                 <img src="img/BRI.png" class="h-8 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all" alt="BRI" />
                 <i class="fas fa-credit-card text-soft-gold/50 text-xl"></i>
               </div>
-
               <div class="mb-8">
                 <p class="font-main text-gray-400 text-xs uppercase tracking-widest mb-2">Nomor Rekening</p>
                 <p id="rek-1" class="font-display text-2xl tracking-wider text-denim-dark font-bold">4367 0104 2779</p>
                 <p class="font-semibold font-main text-sm mt-1 text-denim-muted">MIRNA ROHIMAH</p>
               </div>
-
               <button onclick="copyToClipboard('rek-1', '436701042779')" class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-denim-dark hover:text-soft-gold transition-all group-hover:gap-4">
                 <span>Salin Nomor</span> <i class="far fa-copy"></i>
               </button>
             </div>
 
             <div class="group relative bg-denim-dark p-8 rounded-[2.5rem] shadow-soft text-white border border-denim-dark hover:border-soft-gold transition-all duration-300">
+              <div class="absolute bottom-4 right-4 text-soft-gold opacity-20 text-4xl"><i class="fab fa-pagelines"></i></div>
+
               <div class="flex items-center justify-between mb-8">
                 <img src="img/mandiri.png" class="h-8 brightness-0 invert opacity-70 group-hover:opacity-100 transition-all" alt="Mandiri" />
                 <i class="fas fa-university text-soft-gold/50 text-xl"></i>
               </div>
-
               <div class="mb-8">
                 <p class="font-main text-white/60 text-xs uppercase tracking-widest mb-2">Nomor Rekening</p>
                 <p id="rek-2" class="font-display text-2xl tracking-wider text-soft-gold font-bold">1770 0053 28825</p>
                 <p class="font-semibold font-main text-sm mt-1 text-dusty-blue">MIRNA ROHIMAH</p>
               </div>
-
               <button onclick="copyToClipboard('rek-2', '1770005328825')" class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white hover:text-soft-gold transition-all group-hover:gap-4">
                 <span>Salin Nomor</span> <i class="far fa-copy"></i>
               </button>
@@ -286,14 +416,24 @@
         </div>
       </section>
 
-      <section class="py-24 px-6 relative bg-cream-bg">
+      <section class="py-24 px-6 relative bg-cream-bg overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-32 md:w-48 opacity-20 pointer-events-none">
+          <svg viewBox="0 0 100 120" fill="currentColor" class="text-denim-muted">
+            <rect x="20" y="80" width="60" height="40" rx="5" />
+            <path d="M50 80 L50 20" stroke="currentColor" stroke-width="2" />
+            <circle cx="50" cy="20" r="15" fill="#D4A5A5" />
+            <ellipse cx="30" cy="50" rx="10" ry="5" fill="#A3BDD0" transform="rotate(-30 30 50)" />
+            <ellipse cx="70" cy="60" rx="10" ry="5" fill="#A3BDD0" transform="rotate(30 70 60)" />
+          </svg>
+        </div>
+
         <div class="max-w-2xl mx-auto relative z-10 fade-in-up">
           <div class="text-center mb-12">
             <h2 class="font-script text-4xl text-denim-dark mb-4">Kirim Ucapan & Doa</h2>
             <p class="text-gray-500">Tuliskan harapan terbaikmu untuk kami</p>
           </div>
 
-          <div class="bg-white p-8 md:p-10 rounded-[3rem] shadow-soft relative">
+          <div class="bg-white p-8 md:p-10 rounded-[3rem] shadow-soft relative border border-gray-100">
             <form id="wishes-form" class="space-y-6">
               <div class="relative">
                 <i class="far fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
@@ -317,21 +457,27 @@
         </div>
       </section>
 
-      <footer class="py-16 text-center bg-denim-dark relative overflow-hidden">
+      <footer class="py-20 text-center bg-denim-dark relative overflow-hidden">
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border-2 border-white/5 rounded-full pointer-events-none animate-spin-slow"></div>
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-dashed border-white/5 rounded-full pointer-events-none" style="transform: translate(-50%, -50%) rotate(45deg)"></div>
+
         <div class="relative z-10">
-          <h2 class="font-script text-5xl text-soft-gold mb-4">Mirna & Ilal</h2>
-          <div class="flex items-center justify-center gap-2 mb-6 opacity-50">
-            <div class="h-px w-10 bg-white"></div>
-            <i class="fas fa-heart text-white text-xs"></i>
-            <div class="h-px w-10 bg-white"></div>
+          <h2 class="font-script text-6xl text-soft-gold mb-6 relative inline-block">
+            Mirna & Ilal
+            <i class="fas fa-leaf text-xl text-dusty-blue absolute -top-4 -right-8 rotate-45"></i>
+          </h2>
+          <div class="flex items-center justify-center gap-4 mb-8 opacity-50">
+            <div class="h-px w-16 bg-gradient-to-r from-transparent to-white"></div>
+            <i class="fas fa-heart text-muted-rose text-sm"></i>
+            <div class="h-px w-16 bg-gradient-to-l from-transparent to-white"></div>
           </div>
-          <p class="font-main text-xs text-white/60 uppercase tracking-[0.2em]">Merayakan Cinta Kami</p>
+          <p class="font-main text-xs text-white/60 uppercase tracking-[0.3em]">Merayakan Cinta Kami</p>
         </div>
       </footer>
 
       <div
         id="toast"
-        class="fixed top-6 left-1/2 -translate-x-1/2 bg-denim-dark text-white px-6 py-3 rounded-full shadow-soft z-[70] flex items-center gap-3 transition-all duration-300 opacity-0 -translate-y-10 pointer-events-none text-sm font-semibold"
+        class="fixed top-6 left-1/2 -translate-x-1/2 bg-denim-dark text-white px-6 py-3 rounded-full shadow-soft z-[70] flex items-center gap-3 transition-all duration-300 opacity-0 -translate-y-10 pointer-events-none text-sm font-semibold border border-soft-gold/30"
       >
         <i class="fas fa-check text-soft-gold"></i>
         <span>Berhasil Disalin</span>
