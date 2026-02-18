@@ -1,0 +1,52 @@
+/* Custom Scrollbar (Lebih tipis dan elegan) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fffbf2; /* Cream bg */
+}
+::-webkit-scrollbar-thumb {
+  background: #a3bdd0; /* Dusty blue */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a6fa5; /* Muted denim */
+}
+
+/* Animations Keyframes (Lebih lambat dan halus) */
+.animate-spin-slow {
+  animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Transition Classes (Gaya muncul yang lebih smooth/elegan) */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); /* Easing yang smooth */
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar for Wishes List */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d4a5a5; /* Muted rose */
+  border-radius: 10px;
+}
