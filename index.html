@@ -92,9 +92,31 @@
       <div class="relative z-10 text-center p-8 w-full max-w-md">
         <p class="font-display text-sm tracking-[0.3em] text-dusty-blue uppercase mb-4">The Wedding Of</p>
 
-        <div class="relative py-8">
+        <div class="relative py-12 px-10">
+          <div class="absolute -top-4 -left-4 text-soft-gold/40 text-5xl animate-sway">
+            <i class="fas fa-seedling rotate-45"></i>
+          </div>
+          <div class="absolute top-2 left-8 text-muted-rose/30 text-3xl animate-float-slow">
+            <i class="fas fa-spa"></i>
+          </div>
+
+          <div class="absolute -bottom-4 -right-4 text-soft-gold/40 text-5xl animate-sway" style="animation-delay: 1s">
+            <i class="fas fa-seedling -rotate-135"></i>
+          </div>
+          <div class="absolute bottom-2 right-8 text-muted-rose/30 text-3xl animate-float-slow" style="animation-delay: 1.5s">
+            <i class="fas fa-spa"></i>
+          </div>
+
+          <svg class="absolute inset-0 w-full h-full text-soft-gold/20" viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 30 Q 30 10 60 10 M240 10 Q 270 10 290 30 M10 120 Q 30 140 60 140 M240 140 Q 270 140 290 120" stroke="currentColor" stroke-width="1" />
+          </svg>
+
           <h1 class="font-wedding text-6xl md:text-8xl text-white drop-shadow-sm leading-relaxed relative z-10">Mirna <span class="text-soft-gold font-script text-4xl align-middle">&</span> Ilal</h1>
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-24 bg-white/5 rounded-full blur-xl -z-0"></div>
+
+          <div class="absolute top-0 right-1/4 text-white/20 text-xs animate-float-slow"><i class="fas fa-leaf"></i></div>
+          <div class="absolute bottom-0 left-1/4 text-white/20 text-xs animate-float-slow" style="animation-delay: 2s"><i class="fas fa-leaf rotate-90"></i></div>
+
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-32 bg-white/5 rounded-full blur-2xl -z-0"></div>
         </div>
 
         <div class="mt-10 flex flex-col items-center gap-5 p-8 bg-white/10 backdrop-blur-md rounded-[2.5rem] border border-white/20 shadow-soft relative overflow-hidden">
@@ -112,48 +134,21 @@
 
     <main id="main-content" class="relative z-10 hidden opacity-0 transition-opacity duration-1000">
       <section class="min-h-screen relative flex flex-col items-center justify-center py-20 px-6 bg-gradient-to-b from-cream-bg to-white overflow-hidden">
-        <div class="absolute top-0 left-0 w-48 h-48 md:w-80 md:h-80 pointer-events-none z-0 animate-sway origin-top-left">
-          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-denim-muted/20">
-            <path d="M0 0 C30 60, 60 90, 100 140" stroke="currentColor" stroke-width="2" />
-            <path d="M10 0 C40 50, 20 100, 50 150" stroke="currentColor" stroke-width="1.5" />
+        <!-- <div class="absolute -top-4 -left-4 w-56 h-56 md:w-96 md:h-96 pointer-events-none z-0 animate-sway origin-top-left">
+          <img src="img/flower-border1.png" class="w-full h-full object-contain scale-x-[-1]" alt="flower-tl" />
+        </div> -->
 
-            <ellipse cx="100" cy="140" rx="12" ry="25" fill="#D4A5A5" opacity="0.6" />
-            <ellipse cx="80" cy="100" rx="10" ry="18" fill="#A3BDD0" opacity="0.5" transform="rotate(-30 80 100)" />
-            <ellipse cx="120" cy="110" rx="8" ry="15" fill="#C8A951" opacity="0.4" transform="rotate(20 120 110)" />
-            <ellipse cx="50" cy="150" rx="8" ry="15" fill="#A3BDD0" opacity="0.4" transform="rotate(-10 50 150)" />
-
-            <circle cx="90" cy="60" r="4" fill="#D4A5A5" opacity="0.5" />
-            <circle cx="130" cy="160" r="3" fill="#A3BDD0" opacity="0.5" />
-          </svg>
+        <div class="absolute -top-4 -left-4 w-56 h-56 md:w-96 md:h-96 pointer-events-none z-0 animate-sway origin-top-left" style="animation-delay: 1s">
+          <img src="img/flower-border1.png" class="w-full h-full object-contain" alt="flower-tr" />
         </div>
 
-        <div class="absolute top-0 right-0 w-40 h-40 md:w-72 md:h-72 pointer-events-none z-0 animate-sway origin-top-right" style="animation-delay: 1s">
-          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-denim-muted/20 transform scale-x-[-1]">
-            <path d="M0 0 C40 40, 80 50, 120 80" stroke="currentColor" stroke-width="2" />
-            <ellipse cx="120" cy="80" rx="15" ry="8" fill="#D4A5A5" opacity="0.5" />
-            <circle cx="80" cy="40" r="20" fill="#A3BDD0" opacity="0.2" />
-            <path d="M20 0 C50 80, 100 20, 140 50" stroke="currentColor" stroke-width="1" opacity="0.5" />
-            <circle cx="140" cy="50" r="6" fill="#C8A951" opacity="0.4" />
-          </svg>
+        <div class="absolute -bottom-4 -right-4 w-56 h-56 md:w-96 md:h-96 pointer-events-none z-0 animate-sway origin-bottom-right" style="animation-delay: 0.5s">
+          <img src="img/flower-border1.png" class="w-full h-full object-contain scale-x-[-1] scale-y-[-1]" alt="flower-br" />
         </div>
 
-        <div class="absolute bottom-0 right-0 w-48 h-48 md:w-80 md:h-80 pointer-events-none z-0">
-          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-muted-rose/20">
-            <circle cx="200" cy="200" r="100" fill="currentColor" />
-            <circle cx="150" cy="220" r="70" fill="#A3BDD0" opacity="0.4" />
-            <circle cx="220" cy="140" r="60" fill="#C8A951" opacity="0.3" />
-            <path d="M150 150 Q180 180 200 120" stroke="#D4A5A5" stroke-width="2" opacity="0.5" />
-            <circle cx="150" cy="150" r="5" fill="#D4A5A5" />
-          </svg>
-        </div>
-
-        <div class="absolute bottom-0 left-0 w-32 h-32 md:w-64 md:h-64 pointer-events-none z-0">
-          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-denim-muted/10">
-            <circle cx="0" cy="200" r="80" fill="#A3BDD0" opacity="0.3" />
-            <circle cx="40" cy="160" r="40" fill="#D4A5A5" opacity="0.2" />
-            <path d="M0 200 L50 150" stroke="currentColor" stroke-width="1" />
-          </svg>
-        </div>
+        <!-- <div class="absolute -bottom-4 -left-4 w-56 h-56 md:w-96 md:h-96 pointer-events-none z-0 animate-sway origin-bottom-left" style="animation-delay: 1.5s">
+          <img src="img/flower-border1.png" class="w-full h-full object-contain scale-y-[-1]" alt="flower-bl" />
+        </div> -->
 
         <div class="relative z-10 mb-10 fade-in-up">
           <div class="absolute inset-0 bg-soft-gold/20 rounded-full blur-3xl transform scale-110 animate-pulse"></div>
@@ -167,9 +162,9 @@
 
           <div class="relative max-w-4xl mx-auto">
             <h1 class="font-display text-denim-dark leading-tight flex flex-col md:block items-center justify-center">
-              <span class="text-3xl md:text-5xl lg:text-6xl px-2">Siti Mirna Rohimah, S.Sos.</span>
+              <span class="text-3xl md:text-5xl lg:text-6xl px-2">Mirna</span>
               <span class="font-script text-muted-rose text-4xl my-2 md:mx-3">&</span>
-              <span class="text-3xl md:text-5xl lg:text-6xl px-2">Ilal Inanjar, S.Pd.</span>
+              <span class="text-3xl md:text-5xl lg:text-6xl px-2">Ilal</span>
             </h1>
           </div>
 
@@ -223,7 +218,7 @@
                 </div>
               </div>
 
-              <h3 class="font-script text-5xl text-denim-dark mb-3">Mirna Rohimah</h3>
+              <h3 class="font-script text-5xl text-denim-dark mb-3">Mirna Rohimah, S.Sos.</h3>
               <p class="font-main text-sm text-denim-muted font-bold tracking-wide uppercase mb-1">Putri Keempat dari</p>
               <p class="font-main text-base text-gray-600 mb-6">Bpk. Abdul Kodir & Ibu Aisah</p>
             </div>
